@@ -9,3 +9,5 @@ spring:
     url: # set JDBC URL of the database
     username: # set login username of the database
     password: # set login password of the database
+  flyway:
+    locations: classpath:/db/migrations
