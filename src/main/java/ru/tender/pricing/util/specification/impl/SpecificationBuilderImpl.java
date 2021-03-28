@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import static ru.tender.pricing.util.ProblemSupplier.badRequest;
+
 @Component
 public class SpecificationBuilderImpl<T> implements SpecificationBuilder<T> {
 
@@ -51,7 +53,7 @@ public class SpecificationBuilderImpl<T> implements SpecificationBuilder<T> {
         try {
             return predicateBuilder.build(criteriaBuilder, path, filter);
         } catch (Exception ex) {
-            throw new RuntimeException("Ошибка построения фильтра");
+            throw badRequest("Ошибка построения фильтра: {0}. С сообщением об ошибке: {1}", filter, ex.getMessage());
         }
     }
 
