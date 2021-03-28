@@ -1,4 +1,4 @@
-package ru.tender.pricing;
+package ru.tender.pricing.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
