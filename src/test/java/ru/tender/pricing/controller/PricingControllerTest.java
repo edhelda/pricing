@@ -1,6 +1,7 @@
 package ru.tender.pricing.controller;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
 import ru.tender.pricing.AbstractIntegrationTest;
@@ -31,6 +32,7 @@ class PricingControllerTest extends AbstractIntegrationTest {
      * Добавляем в репозиторий один товар и ожидаем получение этого товара при запросе без фильтров.
      */
     @Test
+    @DisplayName("Поиск без учета фильтров")
     void findAllWithoutFilters() throws Exception {
         Pricing pricing = Pricing.builder().id(1).productName("Молоко").build();
 
@@ -51,6 +53,7 @@ class PricingControllerTest extends AbstractIntegrationTest {
      * Добавляем в репозиторий 2 товара и производим поиск одного товара по полному соответствию одного из атрибутов.
      */
     @Test
+    @DisplayName("Поиск с фильтром по полному соответствию атрибута")
     void findSpecificProductByEqualsFilter() throws Exception {
         Pricing milk = Pricing.builder().id(1).productName("Молоко").fifthAttributeId(1).firstAttributeName("Пакет")
                 .build();
@@ -78,6 +81,7 @@ class PricingControllerTest extends AbstractIntegrationTest {
      * Добавляем в репозиторий 2 товара и производим поиск одного товара по частичному соответствию одного из атрибутов.
      */
     @Test
+    @DisplayName("Поиск с фильтром по частичному соответствию атрибута")
     void findSpecificProductByLikeFilter() throws Exception {
         Pricing milk = Pricing.builder().id(1).productName("Молоко").fifthAttributeId(1).firstAttributeName("Пакет")
                 .build();
